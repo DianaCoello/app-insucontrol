@@ -1,0 +1,211 @@
+<div sidebar></div>
+<div class="main-panel">
+    <div menu></div>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header" data-background-color="purple">
+                            <h4 class="title">Lista de Alimentos con Carbohidratos</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group col-md-6">
+                                <label>Categoria: </label>
+                                <select class="form-control" ng-model="search.categoria_nombre">
+                                    <span class="selected"></span>
+                                    <option value=''>All</option>
+                                    <option ng-repeat="item in datos" 
+                                    value='{{item.categoria_nombre}}'>
+                                        {{item.categoria_nombre}}</option>
+                                </select>
+                            </div>
+                    
+                            <div class="card alt" data-toggle="modal" data-target="#myModal">
+                                <div class="toggle"></div>
+                            </div>
+                            </div>
+                            <div class="card-content table-responsive">
+                                <table class="table">
+                                    <thead class="text-primary">
+                                        <th>Nombre</th>
+                                            <!--    <th>Porción</th>  -->
+                                        <th>Peso de Porción</th>
+                                        <th>Gramos de Ch</th>
+                                        <th>Categoría</th>
+                                        <th>Acciones</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in data | filter:search.categoria_nombre">
+                                            <td>{{item.nombre}}</td>
+                                       <!--     <td>{{item.porcion}}</td>  -->
+                                            <td>{{item.peso_porcion}}</td>
+                                            <td>{{item.gramos_ch}}</td>
+                                            <td>{{item.nombre_categoria}}</td>
+                                            <td class="td-actions text-right">
+                                                <div class="btn btn-primary btn-simple btn-xs" data-toggle="modal" data-target="#modalEditar" 
+                                                ng-click="buscarAlimentos(item.id_ch)">
+                                                    <i class="material-icons">edit</i>
+                                                </div>
+                                                <button type="button" rel="tooltip" class="btn btn-danger btn-simple btn-xs">
+                                                    <i class="material-icons">close</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>  
+                </div> 
+                
+                <div class="pull-right">
+                    <ul class="pagination pagination-primary">
+                        <li class="active"><a href="#">1</a></li>
+                       <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                    </ul>
+                </div>     
+            </div>
+        </div>
+    <div footer></div>
+
+    <!--Modal Insertar -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Nuevo Alimento</h4>
+                <hr>
+              </div>
+              <div class="modal-body">
+                <form id="alimentosForm" ng-submit="insertarAlimentos()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Categoría</label>
+                                <input id="id_categoria" type="text" class="form-control" 
+                                ng-model="id_categoria">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Nombre</label>
+                                <input id="nombre" type="text" class="form-control" 
+                                ng-model="nombre">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Porción</label>
+                                <input id="porcion" type="text" class="form-control" 
+                                ng-model="porcion">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Peso Porción</label>
+                                <input id="peso_porcion" type="text" class="form-control" 
+                                ng-model="peso_porcion">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Gramos Ch</label>
+                                <input id="gramos_ch" type="text" class="form-control" 
+                                ng-model="gramos_ch">
+                            </div> 
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Cant. Porción</label>
+                                <input id="cant_porcion" type="text" class="form-control" 
+                                ng-model="cant_porcion">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal" onclick="parent.location='#!/alimentos'">Cancelar</button>
+                        <input type="submit" class="btn btn-primary btn-simple" value="Guardar"/>
+                    </div>
+                </form>
+              </div>
+              
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Editar-->
+     <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modificar Alimento</h4>
+                <hr>
+              </div>
+              <div class="modal-body">
+                <form id="alimentosForm" ng-submit="modificarAlimentos()">
+                    <div class="row">
+                       
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Categoría</label>
+                                <input type="text" class="form-control" 
+                                value="{{$parent.id_categoria}}" ng-model="id_categoria"> 
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Nombre</label>
+                                <input type="text" class="form-control" 
+                                value="{{$parent.nombre}}" ng-model="nombre">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Porción</label>
+                                <input id="porcion" type="text" class="form-control" 
+                                value="{{$parent.porcion}}" ng-model="porcion"> 
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Peso Porción</label>
+                                <input id="peso_porcion" type="text" class="form-control" 
+                                value="" ng-model="peso_porcion"> {{$parent.peso_porcion}}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Gramos Ch</label>
+                                <input id="gramos_ch" type="text" class="form-control" 
+                                value="" ng-model="gramos_ch"> {{$parent.gramos_ch}}
+                            </div> 
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Cant. Porción</label>
+                                <input id="cant_porcion" type="text" class="form-control" 
+                                value="" ng-model="cant_porcion"> {{$parent.cant_porcion}}
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-simple" data-dismiss="modal" onclick="parent.location='#!/alimentos'">Cancelar</button>
+                        <input type="submit" class="btn btn-primary btn-simple" value="Guardar"/>
+                    </div>
+                </form>
+              </div>
+              
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div sidebar></div>
+<div class="main-panel">
+	<div menu></div>
+	<div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                         <div class="card-header" data-background-color="purple">
+                             <h4 class="title">Lista de Pacientes</h4>
+                         </div>
+                         <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group  is-empty">
+                                <input type="text" ng-model="search" class="form-control" placeholder=" ">
+                                <span class="material-input"></span>
+                            </div>
+                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                <i class="material-icons">search</i>
+                                <div class="ripple-container"></div>
+                            </button>
+                        </form>
+                                           
+                         <div class="card-content table-responsive">
+                            <table class="table">
+                                <thead class="text-primary">
+                                    <th ng-click="sort('nombre_completo')">Nombre
+                                        <span class="glyphicon sort-icon" ng-show="sortKey=='nombre_completo'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                                    <th ng-click="sort('nombre_ciudad')">Ciudad
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='nombre_ciudad'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                                    <th ng-click="sort('fecha_nacimiento')">Edad
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='fecha_nacimiento'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+                                    <th>Historial</th>
+                                </thead>
+                                <tbody>
+                                    <tr dir-paginate="item in datos|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
+                                        <td>{{item.nombre_completo}}</td>
+                                        <td>{{item.nombre_ciudad}}</td>
+                                        <td>{{item.fecha_nacimiento}}</td>
+                                        <td class="td-actions text-right">
+                                          <button type="button" rel="tooltip" class="btn btn-primary btn-simple btn-xs">
+                                            <i class="material-icons">library_books</i>
+                                          </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pull-right">
+                  <dir-pagination-controls
+       max-size="3"
+       direction-links="true"
+       boundary-links="true" >
+    </dir-pagination-controls>
+            </div> 
+        </div>
+    </div>
+	<div footer></div>
+</div> 
