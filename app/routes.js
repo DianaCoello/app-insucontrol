@@ -19,6 +19,11 @@ angular.module('InsuControl')
 			templateUrl: 'app/views/pages/alimentos.html',
 			controller: 'alimentosController'
 		}) 
+
+		.when('/mapa', {
+			templateUrl: 'app/views/pages/mapa.html',
+			controller: 'mapaController'
+		}) 
 		
 		.otherwise({ redirectTo: '/404' });
 	}
