@@ -5,6 +5,12 @@ angular.module('InsuControl')
 	 function($scope, $rootScope, $location, $http, 
 		localStorageService) {
 
+	// 	var obtenerAlimento = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerAlimento.php";
+	//	var obtenerCategoria = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerCategoria.php";
+	//	var guardarAlimento = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/guardarAlimento.php";
+	//	var buscarAlimento = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/guardarAlimento.php";
+
+
 	 	var obtenerAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerAlimento.php";
 		var obtenerCategoria = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerCategoria.php";
 		var guardarAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/guardarAlimento.php";
@@ -32,6 +38,8 @@ angular.module('InsuControl')
 			});
 		}
 
+	/*	var data = $scope.id_ch;
+
 		$scope.buscarAlimentos = function(){
 			$http.post(buscarAlimento, {'id_ch': $scope.id_categoria})
 			.then(function(response){
@@ -39,7 +47,7 @@ angular.module('InsuControl')
 		      console.log(response);
 			});
 		}
-
+*/
 
 	}//fin function principal
 ]);
