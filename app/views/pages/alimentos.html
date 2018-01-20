@@ -15,9 +15,9 @@
                                 <select class="form-control" ng-model="search.categoria_nombre">
                                     <span class="selected"></span>
                                     <option value=''>All</option>
-                                    <option ng-repeat="item in datos" 
-                                    value='{{item.categoria_nombre}}'>
-                                        {{item.categoria_nombre}}</option>
+                                    <option ng-repeat="item in categoria" 
+                                    value='{{item.nombre}}'>
+                                        {{item.nombre}}</option>
                                 </select>
                             </div>
                     
@@ -85,12 +85,15 @@
                 <form id="alimentosForm" ng-submit="insertarAlimentos()">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Categoría</label>
-                                <input id="id_categoria" type="text" class="form-control" 
-                                ng-model="id_categoria">
-                            </div>
-                        </div>
+                            <select class="form-control" ng-model="id_categoria">
+                                <span class="selected"></span>
+                                <option value=''>Categoria</option>
+                                <option ng-repeat="item in categoria"
+                                ng-model="id_categoria"
+                                value='{{item.id_categoria}}'>
+                                {{item.nombre}}</option>
+                            </select>
+                        </div> 
                         <div class="col-md-6">
                             <div class="form-group label-floating">
                                 <label class="control-label">Nombre</label>
@@ -152,13 +155,15 @@
               <div class="modal-body">
                 <form id="alimentosForm" ng-submit="modificarAlimentos()">
                     <div class="row">
-                       
                         <div class="col-md-6">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Categoría</label>
-                                <input type="text" class="form-control" 
-                                value="{{$parent.id_categoria}}" ng-model="id_categoria"> 
-                            </div>
+                            <select class="form-control" ng-model="id_categoria">
+                                <span class="selected"></span>
+                                <option value=''>Categoria</option>
+                                <option ng-repeat="item in categoria"
+                                ng-model="id_categoria"
+                                value='{{item.id_categoria}}'>
+                                {{item.nombre}}</option>
+                            </select>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group label-floating">
