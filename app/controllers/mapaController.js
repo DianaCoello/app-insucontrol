@@ -5,7 +5,9 @@ angular.module('InsuControl')
 	 function($scope, $rootScope, $location, $http, 
 		localStorageService) {
 
-	 	var url = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerGPS.php";
+	 	
+	 	//var obtenerGPS = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerGPS.php";
+	 	var obtenerGPS = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerGPS.php";
 		$http.post(url)
 		  .then(function(response) {
 		      $scope.data = response.data.localizacion;
