@@ -10,6 +10,11 @@ angular.module('InsuControl')
 			controller: 'loginController'
 		}) 
 
+		.when('/perfil', {
+			templateUrl: 'app/views/pages/perfil.html',
+			controller: 'perfilController'
+		})
+
 		.when('/usuarios', {
 			templateUrl: 'app/views/pages/usuarios.html',
 			controller: 'usuariosController'

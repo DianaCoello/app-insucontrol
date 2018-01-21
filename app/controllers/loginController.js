@@ -9,23 +9,9 @@ angular.module('InsuControl')
 
         $scope.init = function() {
             if (AuthenticationService.isLoggedIn()) {
-                console.log("hola");
-                $location.path('/usuarios');
+                $location.path('/perfil');
             }
         }
-
-    /*    $scope.login = function () {
-            $scope.dataLoading = true;
-            AuthenticationService.login($scope.correo, $scope.clave, 
-                function(response) {
-                    if(response.estado === 1) {
-                        AuthenticationService.setCredentials($scope.correo, $scope.clave);
-                        $location.path('/usuarios');
-                    } else {
-                        $scope.error = response.message;
-                        $scope.dataLoading = false;
-                    }
-                });*/
 
         $scope.login = function(){  
             $http.post("http://localhost/pdo_servicios/Ws_Ic/vista/autenticacion_login.php", 
@@ -36,30 +22,13 @@ angular.module('InsuControl')
                 if(response.data.estado == 1) {
                     console.log(response.data.estado);
                     AuthenticationService.setCredentials(data);
-                    $location.path('/usuarios');
+                    $location.path('/perfil');
                 } else {
-                  //  alert(response.mensaje);
+                    alert(response.mensaje);
                 }
 
           });
         }
-
-    /*    $scope.login = function () {
-            $scope.dataLoading = true;
-            AuthenticationService.login($scope.correo, $scope.clave,
-            function(response) {
-                console.log(response);
-                    if(response.estado === 1) {
-                        var data = response.datos[0];
-                        AuthenticationService.setCredentials($scope.correo, $scope.clave);
-                        $location.path('/usuarios');
-                    } else {
-                        $scope.error = response.message;
-                        $scope.dataLoading = false;
-                    }
-            });
-        };
-    */
 
      $scope.init();
     }  

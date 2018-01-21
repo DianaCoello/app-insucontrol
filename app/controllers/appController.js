@@ -18,8 +18,7 @@ angular.module('InsuControl')
 			if (!AuthenticationService.isLoggedIn()) {
 				$location.path('/login');
 			} else {
-				//console.log('SI');
-		    	$location.path('/usuarios');
+		    	$location.path('/perfil');
 		    }
 		}
 
