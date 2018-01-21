@@ -1,0 +1,21 @@
+<img src="assets/img/bg.jpg" alt="" class="bgim">
+<div class="container vcenter">    
+  <div class="cardL">
+    <h1 class="title"><img src="assets/img/logo.png" alt=""></h1>
+    <form ng-submit="login()">
+      <div class="input-container">
+        <input class="user" type="#{type}" ng-model="correo" required="required"/>
+        <label for="#{label}">Username</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="password" ng-model="clave" required="required"/>
+        <label for="#{label}">Password</label>
+        <div class="bar"></div>
+      </div>
+      <div class="button-container">
+        <input class="btn btn-primary" type="submit" value="Iniciar Sesión"></input>
+      </div>
+    </form>
+  </div>
+</div>

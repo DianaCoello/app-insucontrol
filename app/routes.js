@@ -5,10 +5,10 @@ angular.module('InsuControl')
 	function($routeProvider) {
 		
 		$routeProvider
-	/*	.when('/login', {
+		.when('/login', {
 			templateUrl: 'app/views/pages/login.html',
 			controller: 'loginController'
-		}) */
+		}) 
 
 		.when('/usuarios', {
 			templateUrl: 'app/views/pages/usuarios.html',

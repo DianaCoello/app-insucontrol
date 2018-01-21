@@ -28,8 +28,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 	
 </head>
-<!--<body class="nav-md" ng-controller="appController"> -->
-<body>
+<body class="nav-md" ng-controller="appController">
 	 <div class="wrapper">
 	 	<div ng-view></div>
     </div>
@@ -89,11 +88,12 @@
 	<script src="app/directives/footerDirective.js"></script>
 
 	<!-- Services -->
- <!--   <script src="app/factories/admin/categoriaService.js"></script> -->
+    <script src="app/factories/loginService.js"></script> 
    
 
 	<!-- Controllers -->
-  <!--  <script src="app/controllers/loginController.js"></script> -->
+	<script src="app/controllers/appController.js"></script>
+    <script src="app/controllers/loginController.js"></script>
     <script src="app/controllers/usuariosController.js"></script>
     <script src="app/controllers/alimentosController.js"></script>
     <script src="app/controllers/mapaController.js"></script>
