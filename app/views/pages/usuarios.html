@@ -32,7 +32,7 @@
                                     <th>Historial</th>
                                 </thead>
                                 <tbody>
-                                    <tr dir-paginate="item in datos|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
+                                    <tr dir-paginate="item in datos|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
                                         <td>{{item.nombre_completo}}</td>
                                         <td>{{item.nombre_ciudad}}</td>
                                         <td>{{item.fecha_nacimiento}}</td>
@@ -50,10 +50,10 @@
             </div>
             <div class="pull-right">
                   <dir-pagination-controls
-       max-size="3"
-       direction-links="true"
-       boundary-links="true" >
-    </dir-pagination-controls>
+                       max-size="7"
+                       direction-links="true"
+                       boundary-links="true" >
+                  </dir-pagination-controls>
             </div> 
         </div>
     </div>

@@ -5,5 +5,6 @@ angular.module('InsuControl', [
     'ngAnimate',
     'LocalStorageModule',
     'angularUtils.directives.dirPagination',
-    'ngMap'
+    'ngMap',
+    'chart.js'
 ]);

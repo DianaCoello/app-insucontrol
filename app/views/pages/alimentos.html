@@ -36,7 +36,7 @@
                                         <th>Acciones</th>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="item in data | filter:search.categoria_nombre">
+                                        <tr dir-paginate="item in data | filter:search.categoria_nombre|itemsPerPage:10">
                                             <td>{{item.nombre}}</td>
                                        <!--     <td>{{item.porcion}}</td>  -->
                                             <td>{{item.peso_porcion}}</td>
@@ -60,14 +60,12 @@
                 </div> 
                 
                 <div class="pull-right">
-                    <ul class="pagination pagination-primary">
-                        <li class="active"><a href="#">1</a></li>
-                       <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                    </ul>
-                </div>     
+                  <dir-pagination-controls
+                       max-size="7"
+                       direction-links="true"
+                       boundary-links="true" >
+                  </dir-pagination-controls>
+            </div>    
             </div>
         </div>
     <div footer></div>
