@@ -8,8 +8,8 @@ angular.module('InsuControl')
 	// 	var obtenerAlimento = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerAlimento.php";
 	//	var obtenerCategoria = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerCategoria.php";
 	//	var guardarAlimento = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/guardarAlimento.php";
-	//	var buscarAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/buscarAlimento.php";
-	//  var modificarAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/modificarAlimento.php";
+	//	var buscarAlimento = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/buscarAlimento.php";
+	//  var modificarAlimento = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/modificarAlimento.php";
 
 
 	 	var obtenerAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerAlimento.php";
@@ -18,11 +18,16 @@ angular.module('InsuControl')
 		var buscarAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/buscarAlimento.php";
 		var modificarAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/modificarAlimento.php";
 
+		
 
-		$http.post(obtenerAlimento)
-		  .then(function(response) {
+		$scope.mostrarAlimento = function(){
+			$http.post(obtenerAlimento)
+		  	.then(function(response) {
 		      $scope.data = response.data.alimentos;
 		  });
+		}
+		
+		$scope.mostrarAlimento();
 
 		$http.post(obtenerCategoria)
 		  .then(function(response) {
@@ -63,14 +68,21 @@ angular.module('InsuControl')
 				'peso_porcion': $scope.peso_porcion, 'gramos_ch': $scope.gramos_ch, 
 				'cant_porcion': $scope.cant_porcion, 'id_ch': $scope.id_ch})
 			.then(function(response){
+				$scope.mostrarAlimento();
 				console.log(response);
-		    //  $scope.clearForm();
+		    	$scope.clearForm();
+		    	$location.path('/alimentos');
 			});
 		}
+
+	/*	$scope.eliminarAlimento = function(){
+
+		}*/
 
 		$scope.clearForm =function() {
 			$('#alimentosForm input[type="text"]').val("");
 		}
 
+		$scope.mostrarAlimento();
 	}//fin function principal
 ]);
