@@ -14,23 +14,29 @@ angular.module('InsuControl')
             $rootScope.nic = data.nic;
             $rootScope.correo = data.correo;
             $rootScope.clave = data.clave;
-            $rootScope.fecha_nacimiento = data.fecha_nacimiento;
-            $rootScope.nombre_provincia = data.nombre_provincia;
-            $rootScope.nombre_ciudad = data.nombre_ciudad;
+
+            $rootScope.fecha_nacimiento = new Date(data.fecha_nacimiento);
             $rootScope.genero = data.sexo;
-
-            console.log($rootScope.usuario);
-
             $rootScope.RadioChange = function (s) {
                 $scope.generoSelect = s;
             };
+
+            $rootScope.miProvincia = {
+                id_provincia: data.id_provincia,
+                nombre: data.nombre_provincia
+            }
+
+            $rootScope.miCiudad = {
+                id_ciudad: data.id_ciudad,
+                nombre_ciudad: data.nombre_ciudad
+              }
+            console.log($rootScope.miProvincia);
         }
 
         service.getCredentials = function(usuario, clave) {
             return localStorageService.get('usuario');
         }
 
-        //  Verifica si hay información (de usuario) en localStorage
         service.isLoggedIn = function() {
             if (localStorageService.length() > 0) {
                 return true;
