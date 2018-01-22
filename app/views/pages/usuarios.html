@@ -37,7 +37,7 @@
                                         <td>{{item.nombre_ciudad}}</td>
                                         <td>{{item.fecha_nacimiento}}</td>
                                         <td class="td-actions text-right">
-                                          <button type="button" rel="tooltip" class="btn btn-primary btn-simple btn-xs">
+                                          <button type="button" rel="tooltip" class="btn btn-primary btn-simple btn-xs" ng-click="buscarHistorial(item.id_usuario, item.nombre_completo)">
                                             <i class="material-icons">library_books</i>
                                           </button>
                                         </td>

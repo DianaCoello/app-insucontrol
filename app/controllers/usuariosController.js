@@ -9,7 +9,15 @@ angular.module('InsuControl')
 		$http.post(url)
 		  .then(function(response) {
 		      $scope.datos = response.data.usuarios;
-		      console.log($scope.datos);
+		      //console.log($scope.datos);
 		  });
+         
+         
+         $scope.buscarHistorial = function(id_usuario, nombre){
+			 $rootScope.paciente_id = id_usuario;
+             $rootScope.paciente_nombre = nombre;
+             $location.path('/historial');
+			
+		}
 	}
 ]);

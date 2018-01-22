@@ -12,7 +12,7 @@
                             <div class="card-content">
                                 <div class="card-content">
                                     <div class="col-md-12">
-                                        <h4> <strong>Paciente:</strong>  Karen Alava</h4>
+                                        <h4> <strong>Paciente:</strong>{{$parent.paciente_nombre}}</h4>
                                     </div>
                                     
                                 </div>
@@ -20,11 +20,11 @@
                                 <div class="col-sm-12 col-lg-4">
                                     <div class="card">
                                         <div class="card-header" data-background-color="green">
-                                            <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"
-                      chart-series="series" chart-options="options"></canvas>
+                                            <canvas id="chart_gluc" class="chart chart-line" chart-data="dGlucosa" chart-labels="labels"
+                      chart-series="sGlucosa" chart-options="options"></canvas>
                                         </div>
                                         
-                                        <h4 class="title">Carbohidratos</h4>
+                                        <h4 class="title">Glucosa Diaria</h4>
                                         
                                     </div>
                                 </div>
@@ -32,11 +32,11 @@
                                 <div class="col-sm-12 col-lg-4">
                                     <div class="card">
                                         <div class="card-header" data-background-color="orange">
-                                            <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"
-                      chart-series="series" chart-options="options"></canvas>
+                                            <canvas id="chart_carb" class="chart chart-line" chart-data="dCarbohidratos" chart-labels="labels"
+                      chart-series="sCarbohidratos" chart-options="options"></canvas>
                                         </div>
                                         
-                                        <h4 class="title">Carbohidratos</h4>
+                                        <h4 class="title">Cantidad de Carbohidratos</h4>
                                         
                                     </div>
                                 </div>
@@ -44,11 +44,11 @@
                                 <div class="col-sm-12 col-lg-4">
                                     <div class="card">
                                         <div class="card-header" data-background-color="red">
-                                            <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"
-                      chart-series="series" chart-options="options"></canvas>
+                                            <canvas id="chart_ins" class="chart chart-line" chart-data="dInsulina" chart-labels="labels"
+                      chart-series="sInsulina" chart-options="options"></canvas>
                                         </div>
                                         
-                                        <h4 class="title">Carbohidratos</h4>
+                                        <h4 class="title">Dosis Insulina</h4>
                                         
                                     </div>
                                 </div>
