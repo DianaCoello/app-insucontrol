@@ -7,7 +7,9 @@ angular.module('InsuControl').config(['ChartJsProvider', function (ChartJsProvid
 .controller('historialController', ['$scope', '$rootScope', '$location', '$http', 'localStorageService', 
 	 function($scope, $rootScope, $location, $http, 
 		localStorageService) {
-
+         
+         
+        //var obtenerHistorial = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerHistorial.php"; 
 	 	var obtenerHistorial = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerHistorial.php";
 		var aGlucosa = [];
         var aCarbohidratos = [];
