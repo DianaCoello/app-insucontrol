@@ -18,7 +18,7 @@ angular.module('InsuControl')
             $rootScope.fecha_nacimiento = new Date(data.fecha_nacimiento);
             $rootScope.genero = data.sexo;
             $rootScope.RadioChange = function (s) {
-                $scope.generoSelect = s;
+                $rootScope.generoSelect = s;
             };
 
             $rootScope.miProvincia = {
@@ -30,7 +30,7 @@ angular.module('InsuControl')
                 id_ciudad: data.id_ciudad,
                 nombre_ciudad: data.nombre_ciudad
               }
-            console.log($rootScope.miProvincia);
+            console.log($rootScope.fecha_nacimiento);
         }
 
         service.getCredentials = function(usuario, clave) {

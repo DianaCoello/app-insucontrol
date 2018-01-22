@@ -10,7 +10,7 @@
                                 <h4 class="title">Información</h4>
                             </div>
                             <div class="card-content">
-                                <form novalidate id="usuarioForm" class="form-horizontal form-label-left" ng-submit="modificarUsuario()">
+                               
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
@@ -34,16 +34,13 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
-                                                <label class="control-label">Fecha Nacimiento</label>    
-                                                
+                                                <label class="control-label">Fecha Nacimiento</label>   
                                                 <form name="dateForm" novalidate 
                                                 ng-model="fecha_nacimiento">
                                                     <input class="form-control" type="date" 
                                                         value=""
                                                         name="dateField"
-                                                        ng-model="fecha_nacimiento"
-                                                        ng-min="'2015-01-20'"
-                                                        ng-max="'2016-01-20'">
+                                                        ng-model="fecha_nacimiento"> 
                                                 </form>
                                             </div>  
                                         </div>                                            
@@ -97,17 +94,19 @@
 
                                         <div class="col-md-6">
                                             <select class="form-control" 
-                                            ng-model="miCiudad" ng-options="ciudad as ciudad.nombre_ciudad for ciudad in ciudades track by ciudad.id_ciudad" value='{{ciudad.id_ciudad}}'>
+                                            ng-model="miCiudad" ng-options="ciudad as ciudad.nombre_ciudad for ciudad in ciudades track by ciudad.id_ciudad" value="{{ciudad.id_ciudad}}">
                                                 <option value="{{ciudad.id_ciudad}}" 
                                                 ng-model="id_ciudad">--Ciudades--</option>
                                             </select>
                                         </div>
                                     </div> 
-
-                                    <input type="submit" class="btn btn-primary pull-right" 
-                                    value="Guardar"/>
+                                    <div class="row">
+                                        <button type="button" class="btn btn-primary pull-right"
+                                        ng-click="modificarUsuario()">Guardar</button>    
+                                    </div>
+                                    
                                     <div class="clearfix"></div>
-                                </form>
+                               
                             </div>
                         </div>
                     </div>

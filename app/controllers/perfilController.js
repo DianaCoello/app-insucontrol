@@ -42,13 +42,13 @@ angular.module('InsuControl')
 			});
 		}
 
-//id_usuario, $nombre, $apellido, $correo,   $nic, $sexo, $fecha_nacimiento, $clave
 		$scope.modificarUsuario = function(){
+			console.log($scope.id_usuario);
 			$http.post(modificarUsuario, {'id_usuario': $scope.id_usuario, 
 				'nombre': $scope.usuario, 'apellido': $scope.apellido,
 				'correo': $scope.correo, 'nic': $scope.nic, 
-				'sexo': $scope.sexo, 'fecha_nacimiento': $scope.fecha_nacimiento,
-				'clave': $scope.clave})
+				'sexo': $scope.genero, 'fecha_nacimiento': $scope.fecha_nacimiento,
+				'clave': $scope.clave, 'id_ciudad': $scope.miCiudad.id_ciudad})
 			.then(function(response){
 				$scope.mostrarUsuario();
 				console.log(response);
@@ -60,7 +60,7 @@ angular.module('InsuControl')
 		$scope.obtenerProvincias();
 		$scope.obtenerCiudades();
 		$scope.obtenerCiudad();
-		$scope.modificarUsuario();
+		//$scope.modificarUsuario();
 
 
 		$scope.today = function() {
