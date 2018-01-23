@@ -14,7 +14,7 @@ angular.module('InsuControl')
         }
 
         $scope.login = function(){  
-            $http.post("http://localhost/pdo_servicios/Ws_Ic/vista/autenticacion_login.php", 
+            $http.post(userLogin, 
                 {'correo': $scope.correo, 'clave': $scope.clave})
             .then(function(response) {
                 var data = response.data.login;

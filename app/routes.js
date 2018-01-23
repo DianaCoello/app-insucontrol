@@ -34,6 +34,11 @@ angular.module('InsuControl')
 			templateUrl: 'app/views/pages/historial.html',
 			controller: 'historialController'
 		})
+
+		.when('/404', {
+			templateUrl: 'app/views/pages/page_404.html',
+			controller: 'historialController'
+		})
 		
 		.otherwise({ redirectTo: '/404' });
 	}

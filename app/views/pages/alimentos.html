@@ -47,9 +47,11 @@
                                                 ng-click="buscarAlimentos(item.id_ch)">
                                                     <i class="material-icons">edit</i>
                                                 </div>
-                                                <button type="button" rel="tooltip" class="btn btn-danger btn-simple btn-xs">
+
+                                                <div class="btn btn-primary btn-simple btn-xs"
+                                                ng-click="eliminarAlimento(item.id_ch)">
                                                     <i class="material-icons">close</i>
-                                                </button>
+                                                </div>
                                             </td>
                                         </tr>
                                     </tbody>

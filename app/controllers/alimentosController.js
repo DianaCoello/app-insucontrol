@@ -17,6 +17,7 @@ angular.module('InsuControl')
 		var guardarAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/guardarAlimento.php";
 		var buscarAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/buscarAlimento.php";
 		var modificarAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/modificarAlimento.php";
+		var eliminarAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/eliminarAlimento.php";
 
 		
 
@@ -75,9 +76,14 @@ angular.module('InsuControl')
 			});
 		}
 
-	/*	$scope.eliminarAlimento = function(){
-
-		}*/
+		$scope.eliminarAlimento = function(id_ch){
+			$http.post(eliminarAlimento, {'id_ch': id_ch})
+			.then(function(response) {
+		  		alert("Se a eliminado con exito");
+		  		$location.path('/alimentos');
+		    	//  $scope.categoria = response.data.categoria;
+		 	});
+		}
 
 		$scope.clearForm =function() {
 			$('#alimentosForm input[type="text"]').val("");

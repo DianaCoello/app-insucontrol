@@ -16,6 +16,10 @@ angular.module('InsuControl')
             $rootScope.clave = data.clave;
 
             $rootScope.fecha_nacimiento = new Date(data.fecha_nacimiento);
+           // $rootScope.fecha_nacimiento.getTimezoneOffset();
+            $rootScope.fecha_nacimiento.setMinutes 
+                ($rootScope.fecha_nacimiento.getMinutes () + 
+                $rootScope.fecha_nacimiento.getTimezoneOffset ());
             $rootScope.genero = data.sexo;
             $rootScope.RadioChange = function (s) {
                 $rootScope.generoSelect = s;
