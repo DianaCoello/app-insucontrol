@@ -10,8 +10,10 @@ angular.module('InsuControl')
 	 	var obtenerGPS = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerGPS.php";
 		$http.post(obtenerGPS)
 		  .then(function(response) {
+		  	if(response.data.estado == 1) {
 		      $scope.data = response.data.localizacion;
 		      //console.log($scope.data);
+		  	}
 		  });
 	}
 ]);

@@ -1,11 +1,19 @@
 'use strict';
  
 angular.module('InsuControl')
-.controller('perfilController', ['$scope', '$rootScope', '$location', '$http', 'localStorageService', 
+.controller('perfilController', ['$scope', '$rootScope', '$location', '$http', 
+	'localStorageService', 'AuthenticationService',
 	function($scope, $rootScope, $location, $http, 
-		localStorageService) {
+		localStorageService, AuthenticationService) {
 
-	 	var obtenerUsuario = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerUsuario.php";
+	/* 	var obtenerUsuario = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerUsuario.php";
+	 	var obtenerCiudad = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerCiudadXProv.php";
+	 	var obtenerProvincias = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerProvincias.php";
+	 	var obtenerCiudades = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerCiudades.php";
+		var modificarUsuario = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/modificarUsuario.php";
+	*/
+
+		var obtenerUsuario = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerUsuario.php";
 	 	var obtenerCiudad = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerCiudadXProv.php";
 	 	var obtenerProvincias = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerProvincias.php";
 	 	var obtenerCiudades = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerCiudades.php";
@@ -14,14 +22,18 @@ angular.module('InsuControl')
 		$scope.mostrarUsuario = function(){
 			$http.post(obtenerUsuario)
 			.then(function(response) {
-			    $scope.datos = response.data.usuarios;
+				if(response.data.estado == 1) {
+			    	$scope.datos = response.data.usuarios;
+			    }
 			});
 		}
 
 		$scope.obtenerProvincias = function(){
 			$http.post(obtenerProvincias)
 			  .then(function(response) {
+			  	if(response.data.estado == 1) {
 			      $scope.provincias = response.data.provincias;
+				}
 			});
 		}
 
@@ -29,8 +41,9 @@ angular.module('InsuControl')
 			console.log($scope.miProvincia.id_provincia);
 			$http.post(obtenerCiudad, {'id_provincia': $scope.miProvincia.id_provincia})
 			  .then(function(response) {
+			  	if(response.data.estado == 1) {
 			      $scope.ciudadXProv = response.data.ciudadXProv;
-			     // console.log($scope.ciudadXProv);
+				}
 			});
 		}
 		
@@ -38,7 +51,9 @@ angular.module('InsuControl')
 		$scope.obtenerCiudades = function(){
 			$http.post(obtenerCiudades)
 			  .then(function(response) {
+			  	if(response.data.estado == 1) {
 			      $scope.ciudades = response.data.ciudades;
+			    }
 			});
 		}
 
@@ -50,9 +65,12 @@ angular.module('InsuControl')
 				'sexo': $scope.genero, 'fecha_nacimiento': $scope.fecha_nacimiento,
 				'clave': $scope.clave, 'id_ciudad': $scope.miCiudad.id_ciudad})
 			.then(function(response){
-				$scope.mostrarUsuario();
-				console.log(response);
-		    	
+				if(response.data.estado == 1) {
+					var data = response.config.data;
+					console.log(data);
+					 AuthenticationService.setCredentials(data);
+					$scope.mostrarUsuario();
+		    	}
 		    });
 		}
 

@@ -6,10 +6,11 @@ angular.module('InsuControl')
 		localStorageService) {
 
 	 	var url = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerUsuario.php";
+	// 	var url = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerUsuario.php";
+
 		$http.post(url)
 		  .then(function(response) {
 		      $scope.datos = response.data.usuarios;
-		      //console.log($scope.datos);
 		  });
          
          
