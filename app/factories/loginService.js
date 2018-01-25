@@ -2,7 +2,8 @@
  
 angular.module('InsuControl')
 .factory('AuthenticationService', ['$http', '$rootScope', 'localStorageService',
-    function ($http, $rootScope, localStorageService) {
+    '$location',
+    function ($http, $rootScope, localStorageService, $location) {
 
         var service = {};
 

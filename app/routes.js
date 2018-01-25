@@ -13,7 +13,7 @@ angular.module('InsuControl')
 		.when('/perfil', {
 			templateUrl: 'app/views/pages/perfil.html',
 			controller: 'perfilController',
-			resolve : {
+		/*	resolve : {
 		        'acl' : ['$q', 'AclService', function($q, AclService){
 		        	if(AclService.can('perfil')){
 		        		return true;
@@ -23,7 +23,7 @@ angular.module('InsuControl')
 		            	return $q.reject('Unauthorized');
 		          	}
 		        }]
-		    }
+		    }*/
 		})
 
 		.when('/usuarios', {

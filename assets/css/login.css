@@ -397,9 +397,9 @@ img {
 }
 
 .bgim {
-    position: absolute;
     height: 100%;
-    bottom: 0px;
+    width: auto;
+    position: absolute;
     opacity: 0.3;
     filter: alpha(opacity=30);
 }

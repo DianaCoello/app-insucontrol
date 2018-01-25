@@ -12,6 +12,7 @@ angular.module('InsuControl')
 		    	var data = AuthenticationService.getCredentials();
 		    	AuthenticationService.setCredentials(data);
 		    	AclService.roles();
+//		    	$location.path('/perfil');
 		    }
 		}
 

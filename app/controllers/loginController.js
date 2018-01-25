@@ -23,9 +23,8 @@ angular.module('InsuControl')
             .then(function(response) {
                 var data = response.data.login;
                 if(response.data.estado == 1) {
+                 //   $location.path('/perfil');
                     AuthenticationService.setCredentials(data);
-                    alert('Bienvenido');
-                    $location.path('/perfil');
                 } else {
                     alert(response.mensaje);
                 }
