@@ -19,7 +19,7 @@ angular.module('InsuControl')
 	 	var obtenerCiudades = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerCiudades.php";
 		var modificarUsuario = "http://localhost/pdo_servicios/Ws_Ic/vista/modificarUsuario.php";
 
-		$scope.can = AclService.can;
+		//$scope.can = AclService.can;
 		
 		$scope.mostrarUsuario = function(){
 			$http.post(obtenerUsuario)
@@ -127,6 +127,10 @@ angular.module('InsuControl')
 	    	'shortDate'
 	  	];
 	  	$scope.format = $scope.formats[3];
+        
+        angular.element(function () {
+            document.getElementById("nav_perfil").className = "active";
+        });
 
 	}
 ]);

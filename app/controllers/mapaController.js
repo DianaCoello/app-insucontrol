@@ -15,5 +15,9 @@ angular.module('InsuControl')
 		      //console.log($scope.data);
 		  	}
 		  });
+         
+         angular.element(function () {
+            document.getElementById("nav_mapa").className = "active";
+        });
 	}
 ]);

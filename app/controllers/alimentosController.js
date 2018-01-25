@@ -102,5 +102,9 @@ angular.module('InsuControl')
 		}
 
 		$scope.mostrarAlimento();
+         
+         angular.element(function () {
+            document.getElementById("nav_alimentos").className = "active";
+        });
 	}//fin function principal
 ]);

@@ -20,5 +20,9 @@ angular.module('InsuControl')
              $location.path('/historial');
 			
 		}
+         
+         angular.element(function () {
+            document.getElementById("nav_usuario").className = "active";
+        });
 	}
 ]);

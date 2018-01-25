@@ -34,6 +34,7 @@ angular.module('InsuControl')
          console.log ("pasado= "+$scope.sfPasado); 
 
 		$scope.mostrarHistorial = function(){
+            //document.getElementById("nav_historial").className = "active";
 			$http.post(obtenerHistorial, {'id_usuario': $rootScope.paciente_id, 'fecha1': $scope.sfPasado, 'fecha2':$scope.sfHoy})
 		  	.then(function(response) {
                 console.log("estado"+response.data.estado);
@@ -60,7 +61,8 @@ angular.module('InsuControl')
                 aGlucosa.push(lin[i].gs_actual);
                 aCarbohidratos.push(lin[i].total_ch);
                 aInsulina.push(lin[i].total_estimado);
-                aCant.push(i);
+                var fec = new Date(lin[i].fecha)
+                aCant.push((fec.getMonth()+1) + "-" + fec.getDate());
             }
             $scope.dGlucosa[0] = aGlucosa;
             $scope.dCarbohidratos[0] = aCarbohidratos;
@@ -71,6 +73,13 @@ angular.module('InsuControl')
             //console.log(arreglo);
             
         }
+        
+        
+        angular.element(function () {
+            document.getElementById("nav_historial").className = "active";
+        });
+        
+        
         
         
         
