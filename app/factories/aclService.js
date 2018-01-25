@@ -5,7 +5,7 @@ angular.module('InsuControl')
     function (AclService, AuthenticationService) { 
 
         AclService.addRole('paciente');
-        AclService.addRole('medicos');
+        AclService.addRole('medico');
         AclService.addRole('admin');
 
         AclService.addResource('perfil');
@@ -24,10 +24,10 @@ angular.module('InsuControl')
         AclService.allow('paciente', 'alimentos');
         AclService.allow('paciente', 'historial');
 
-        AclService.allow('medicos', 'perfil');
-        AclService.allow('medicos', 'alimentos');
-        AclService.allow('medicos', 'usuarios');
-        AclService.allow('medicos', 'historial');
+        AclService.allow('medico', 'perfil');
+        AclService.allow('medico', 'alimentos');
+        AclService.allow('medico', 'usuarios');
+        AclService.allow('medico', 'historial');
 
        
         AclService.roles = function(){
@@ -39,7 +39,6 @@ angular.module('InsuControl')
                 },
             };
             AclService.setUserIdentity(user);
-            console.log(user);
 
         }         
     }]);

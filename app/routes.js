@@ -15,9 +15,7 @@ angular.module('InsuControl')
 			controller: 'perfilController',
 			resolve : {
 		        'acl' : ['$q', 'AclService', function($q, AclService){
-					console.log("prueba");
 		        	if(AclService.can('perfil')){
-		        		console.log("chao");
 		        		return true;
 		          	} else { 
 		            	console.log("hola");

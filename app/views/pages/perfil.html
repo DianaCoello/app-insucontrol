@@ -15,21 +15,22 @@
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Nombre</label>
-                                                <input type="text" class="form-control" value="{{$parent.usuario}}" ng-model="usuario">
+                                                <input type="text" class="form-control" value="{{$parent.usuario}}" ng-model="usuario" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Apellido</label>
-                                                <input type="text" class="form-control" value=" {{$parent.apellido}}" ng-model="apellido">
+                                                <input type="text" class="form-control" value=" {{$parent.apellido}}" ng-model="apellido" required="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
-                                                <label class="control-label">Cédula</label>
-                                                <input type="text" class="form-control" value=" {{$parent.nic}}" ng-model="nic">
+                                                <label class="control-label">Cédula
+                                                </label>
+                                                <input type="text" class="form-control" value=" {{$parent.nic}}" ng-model="nic" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -37,7 +38,8 @@
                                                 <label class="control-label">Fecha Nacimiento</label>   
                                                 <form name="dateForm" novalidate 
                                                 ng-model="fecha_nacimiento">
-                                                    <input class="form-control" type="date" 
+                                                    <input class="form-control" 
+                                                        type="date" 
                                                         value=""
                                                         name="dateField"
                                                         ng-model="fecha_nacimiento"> 
@@ -50,14 +52,14 @@
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Correo electrónico</label>
-                                                <input type="email" class="form-control" 
-                                                value=" {{$parent.correo}}" ng-model="correo">
+                                                <input type="email" class="form-control"    value=" {{$parent.correo}}" 
+                                                    ng-model="correo" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group label-floating">
                                                 <label class="control-label">Contraseña</label>
-                                                <input type="password" class="form-control" value=" {{$parent.clave}}" ng-model="clave">
+                                                <input type="password" class="form-control" value="{{$parent.clave}}" ng-model="clave" required="">
                                             </div>
                                         </div>
                                     </div>

@@ -22,9 +22,9 @@ angular.module('InsuControl')
                 {'correo': $scope.correo, 'clave': $scope.clave})
             .then(function(response) {
                 var data = response.data.login;
-                console.log(data);
                 if(response.data.estado == 1) {
                     AuthenticationService.setCredentials(data);
+                    alert('Bienvenido');
                     $location.path('/perfil');
                 } else {
                     alert(response.mensaje);
