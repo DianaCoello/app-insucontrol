@@ -10,6 +10,7 @@ angular.module('InsuControl')
 		var guardarAlimento = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/guardarAlimento.php";
 		var buscarAlimento = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/buscarAlimento.php";
 	  	var modificarAlimento = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/modificarAlimento.php";
+		var eliminarAlimento = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/eliminarAlimento.php";
 	*/
 
 	 	var obtenerAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerAlimento.php";

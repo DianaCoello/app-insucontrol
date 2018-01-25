@@ -6,5 +6,6 @@ angular.module('InsuControl', [
     'LocalStorageModule',
     'angularUtils.directives.dirPagination',
     'ngMap',
-    'chart.js'
+    'chart.js',
+    'ng-acl'
 ]);

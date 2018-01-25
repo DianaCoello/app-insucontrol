@@ -6,6 +6,8 @@ angular.module('InsuControl')
     function ($scope, $rootScope, $location, $http, localStorageService, AuthenticationService) {
         
         var userLogin = "http://localhost/pdo_servicios/Ws_Ic/vista/autenticacion_login.php";
+        var obtenerTipoUser = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerTipoUsuario.php";
+
 
 //        var userLogin = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/autenticacion_login.php";
 
@@ -27,10 +29,19 @@ angular.module('InsuControl')
                 } else {
                     alert(response.mensaje);
                 }
+          });
+        }
 
+        $scope.obtenerTipoUsuario = function(){
+            $http.post(obtenerTipoUser)
+            .then(function(response) {
+                if (response.data.estado == 1) {
+                   $scope.data = response.data.tipo_usuario;
+                }
           });
         }
 
      $scope.init();
+     $scope.obtenerTipoUsuario();
     }  
 ]);

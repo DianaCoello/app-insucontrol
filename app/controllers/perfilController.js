@@ -2,9 +2,9 @@
  
 angular.module('InsuControl')
 .controller('perfilController', ['$scope', '$rootScope', '$location', '$http', 
-	'localStorageService', 'AuthenticationService',
+	'localStorageService', 'AuthenticationService',  'AclService',
 	function($scope, $rootScope, $location, $http, 
-		localStorageService, AuthenticationService) {
+		localStorageService, AuthenticationService, AclService) {
 
 	/* 	var obtenerUsuario = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerUsuario.php";
 	 	var obtenerCiudad = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerCiudadXProv.php";
@@ -19,6 +19,8 @@ angular.module('InsuControl')
 	 	var obtenerCiudades = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerCiudades.php";
 		var modificarUsuario = "http://localhost/pdo_servicios/Ws_Ic/vista/modificarUsuario.php";
 
+		$scope.can = AclService.can;
+		
 		$scope.mostrarUsuario = function(){
 			$http.post(obtenerUsuario)
 			.then(function(response) {
@@ -27,6 +29,8 @@ angular.module('InsuControl')
 			    }
 			});
 		}
+
+
 
 		$scope.obtenerProvincias = function(){
 			$http.post(obtenerProvincias)

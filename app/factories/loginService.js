@@ -14,6 +14,8 @@ angular.module('InsuControl')
             $rootScope.nic = data.nic;
             $rootScope.correo = data.correo;
             $rootScope.clave = data.clave;
+            $rootScope.tipo_user = data.id_tipo_usuario;
+            $rootScope.nombre_usuario = data.descripcion;
 
             $rootScope.fecha_nacimiento = new Date(data.fecha_nacimiento);
            // $rootScope.fecha_nacimiento.getTimezoneOffset();
@@ -34,8 +36,7 @@ angular.module('InsuControl')
             $rootScope.miCiudad = {
                 id_ciudad: data.id_ciudad,
                 nombre_ciudad: data.nombre_ciudad
-              }
-            console.log($rootScope.fecha_nacimiento);
+            }
         }
 
         service.getCredentials = function(usuario, clave) {

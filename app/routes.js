@@ -12,34 +12,91 @@ angular.module('InsuControl')
 
 		.when('/perfil', {
 			templateUrl: 'app/views/pages/perfil.html',
-			controller: 'perfilController'
+			controller: 'perfilController',
+			resolve : {
+		        'acl' : ['$q', 'AclService', function($q, AclService){
+					console.log("prueba");
+		        	if(AclService.can('perfil')){
+		        		console.log("chao");
+		        		return true;
+		          	} else { 
+		            	console.log("hola");
+
+		            	return $q.reject('Unauthorized');
+		          	}
+		        }]
+		    }
 		})
 
 		.when('/usuarios', {
 			templateUrl: 'app/views/pages/usuarios.html',
-			controller: 'usuariosController'
+			controller: 'usuariosController',
+			resolve : {
+		        'acl' : ['$q', 'AclService', function($q, AclService){
+		        	if (AclService.can('usuarios')) {
+		            	return true;
+		          	} else {
+		            	return $q.reject('Unauthorized');
+		          	}
+		        }]
+		    }
 		})
 
 		.when('/alimentos', {
 			templateUrl: 'app/views/pages/alimentos.html',
-			controller: 'alimentosController'
+			controller: 'alimentosController',
+			resolve : {
+		        'acl' : ['$q', 'AclService', function($q, AclService){
+		        	if (AclService.can('alimentos')) {
+		            	return true;
+		          	} else {
+		            	return $q.reject('Unauthorized');
+		          	}
+		        }]
+		    }
 		}) 
 
 		.when('/mapa', {
 			templateUrl: 'app/views/pages/mapa.html',
-			controller: 'mapaController'
+			controller: 'mapaController',
+			resolve : {
+		        'acl' : ['$q', 'AclService', function($q, AclService){
+		        	if (AclService.can('mapa')) {
+		            	return true;
+		          	} else {
+		            	return $q.reject('Unauthorized');
+		          	}
+		        }]
+		    }
 		}) 
         
         .when('/historial', {
 			templateUrl: 'app/views/pages/historial.html',
-			controller: 'historialController'
+			controller: 'historialController',
+			resolve : {
+		        'acl' : ['$q', 'AclService', function($q, AclService){
+		        	if (AclService.can('historial')) {
+		            	return true;
+		          	} else {
+		            	return $q.reject('Unauthorized');
+		          	}
+		        }]
+		    }
 		})
 
 		.when('/404', {
-			templateUrl: 'app/views/pages/page_404.html',
-			controller: 'historialController'
+			templateUrl: 'app/views/pages/page_404.html'
 		})
 		
 		.otherwise({ redirectTo: '/404' });
 	}
 ]);
+
+angular.module('InsuControl')
+.run(['$rootScope', '$location', function ($rootScope, $location) {
+	$rootScope.$on('$routeChangeError', function(current, previous, rejection){
+    	if(rejection === 'Unauthorized'){
+      		$location.path('/perfil');
+    	}
+  	})
+}]);

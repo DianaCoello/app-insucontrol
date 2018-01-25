@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('InsuControl')
-.controller('appController', ['$scope', '$location', 'AuthenticationService', 'localStorageService',
-	function($scope, $location, AuthenticationService, localStorageService) {
+.controller('appController', ['$scope', '$location', 'AuthenticationService', 
+	'localStorageService', 'AclService',
+	function($scope, $location, AuthenticationService, localStorageService, AclService) {
 		
 		$scope.init = function() { 
 			if (!AuthenticationService.isLoggedIn()) {
@@ -10,6 +11,7 @@ angular.module('InsuControl')
 		    } else {
 		    	var data = AuthenticationService.getCredentials();
 		    	AuthenticationService.setCredentials(data);
+		    	AclService.roles();
 		    }
 		}
 

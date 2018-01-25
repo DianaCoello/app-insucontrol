@@ -1,0 +1,72 @@
+{
+  "_from": "angularjs-acl",
+  "_id": "angularjs-acl@0.1.2",
+  "_inBundle": false,
+  "_integrity": "sha1-VW0yVXxEgV/qIUse+REuAnV5J3A=",
+  "_location": "/angularjs-acl",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "angularjs-acl",
+    "name": "angularjs-acl",
+    "escapedName": "angularjs-acl",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angularjs-acl/-/angularjs-acl-0.1.2.tgz",
+  "_shasum": "556d32557c44815fea214b1ef9112e0275792770",
+  "_spec": "angularjs-acl",
+  "_where": "C:\\Users\\Darkspines",
+  "author": {
+    "name": "Vlad Fedosov",
+    "email": "vlad.fedosov@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/StyleT/angularjs-acl/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Provides a lightweight and flexible ACL implementation for privileges management in AngularJS",
+  "devDependencies": {
+    "bower": "~1.4.1",
+    "gulp": "*",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-cache": "^0.2.10",
+    "gulp-concat": "~2.6.0",
+    "gulp-jshint": "~1.11.2",
+    "gulp-ng-annotate": "^1.0.0",
+    "gulp-ngdocs": "^0.2.13",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-coverage": "^0.5.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "phantomjs": "^1.9.18"
+  },
+  "homepage": "https://github.com/StyleT/angularjs-acl#readme",
+  "keywords": [
+    "acl",
+    "angular"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "./dist/acl.js",
+  "name": "angularjs-acl",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StyleT/angularjs-acl.git"
+  },
+  "scripts": {
+    "bower": "bower",
+    "gulp": "gulp",
+    "karma": "karma",
+    "test": "gulp test"
+  },
+  "version": "0.1.2"
+}
