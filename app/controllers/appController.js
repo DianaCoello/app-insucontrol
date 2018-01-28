@@ -8,6 +8,7 @@ angular.module('InsuControl')
 		$scope.init = function() { 
 			if (!AuthenticationService.isLoggedIn()) {
 		    	$location.path('/login');
+		    	
 		    } else {
 		    	var data = AuthenticationService.getCredentials();
 		    	AuthenticationService.setCredentials(data);

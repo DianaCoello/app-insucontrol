@@ -46,6 +46,7 @@ angular.module('InsuControl')
 
         service.isLoggedIn = function() {
             if (localStorageService.length() > 0) {
+                console.log(localStorageService);
                 return true;
             } else { return false; }
         }

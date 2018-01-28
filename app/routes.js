@@ -10,20 +10,14 @@ angular.module('InsuControl')
 			controller: 'loginController'
 		}) 
 
+		.when('/registro', {
+			templateUrl: 'app/views/pages/registro.html',
+			controller: 'registroController'
+		}) 
+
 		.when('/perfil', {
 			templateUrl: 'app/views/pages/perfil.html',
-			controller: 'perfilController',
-		/*	resolve : {
-		        'acl' : ['$q', 'AclService', function($q, AclService){
-		        	if(AclService.can('perfil')){
-		        		return true;
-		          	} else { 
-		            	console.log("hola");
-
-		            	return $q.reject('Unauthorized');
-		          	}
-		        }]
-		    }*/
+			controller: 'perfilController'
 		})
 
 		.when('/usuarios', {

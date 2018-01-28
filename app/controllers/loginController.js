@@ -10,7 +10,7 @@ angular.module('InsuControl')
 
 
 //        var userLogin = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/autenticacion_login.php";
-
+ 
         $scope.init = function() {
             if (AuthenticationService.isLoggedIn()) {
                 $location.path('/perfil');
@@ -23,7 +23,7 @@ angular.module('InsuControl')
             .then(function(response) {
                 var data = response.data.login;
                 if(response.data.estado == 1) {
-                 //   $location.path('/perfil');
+                    $location.path('/perfil');
                     AuthenticationService.setCredentials(data);
                 } else {
                     alert(response.mensaje);

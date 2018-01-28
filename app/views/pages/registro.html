@@ -1,0 +1,80 @@
+<!--<img src="assets/img/bg.jpg" alt="" class="bgim"> -->
+<div class="container">
+  <div class="cardL">
+    <h1 class="title"><img src="assets/img/logo.png" alt=""></h1>
+    <form id="registro" ng-submit="guardarUsuario()">
+      <div class="input-container">
+        <input class="nombre" type="#{type}" ng-model="nombre" required="required"/>
+        <label for="#{label}">Nombre</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="apellido" ng-model="apellido" required="required"/>
+        <label for="#{label}">Apellido</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="correo" ng-model="correo" required="required"/>
+        <label for="#{label}">Correo electrónico</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input type="password" ng-model="clave" required="required"/>
+        <label for="#{label}">Contraseña</label>
+        <div class="bar"></div>
+      </div>
+      <div class="input-container">
+        <input class="cedula" type="#{type}" ng-model="nic" required="required"/>
+        <label for="#{label}">Cédula</label>
+        <div class="bar"></div>
+      </div>      
+      <div class="input-container">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios"  ng-change="GeneroChange('masculino')" ng-model="genero" value="masculino">Masculino
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios"  ng-change="GeneroChange('femenino')" ng-model="genero" value="femenino">Femenino
+                    </label>
+                </div>
+            </div>
+        </div>
+      </div>
+      <br><br><br>
+      <div class="input-container">
+        <input class="nacimiento" type="date" value="fecha_nacimiento" name="dateField" 
+          ng-model="fecha_nacimiento"/>
+        <label for="#{label}">Fecha Nacimiento</label>
+        <div class="bar"></div>
+      </div>
+      <select class="input-container form-control" ng-model="id_provincia"
+        ng-change="obtenerCiudad()">
+        <option class="options" ng-repeat="item in provincias" 
+          ng-model="item.nombre" value='{{item.id_provincia}}'> {{item.nombre}}
+        </option>
+      </select>
+
+      <select class="input-container form-control" ng-model="id_ciudad">
+        <option class="options" ng-repeat="item in ciudades" 
+          ng-model="item.nombre_ciudad" value='{{item.id_ciudad}}'> {{item.nombre_ciudad}}
+        </option>
+      </select>
+      <div class="bar"></div>
+      <div class="button-container">
+        <input class="btn btn-primary" type="submit" href="#!/login" 
+        value="Registrarse"></input>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
