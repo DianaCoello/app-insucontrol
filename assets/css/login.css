@@ -54,11 +54,30 @@ body {
 /* Container */
 .container {
   position: relative;
-  max-width: 460px;
+  max-width: 560px;
   width: 100%;
   margin: 0 auto 100px;
   padding-top: 30px;
 }
+
+.contentL{
+    position: relative;
+    max-width: 800px;
+    width: 70%;
+    margin: 0 auto 100px;
+    padding-top: 30px;
+}
+
+.logo{
+  width: 60%;
+  padding: 0 0 0 200px;
+}
+
+.logoL{
+  width: 80%;
+  padding: 0 0 0 110px;
+}
+
 .container.active .cardL:first-child {
 /*  background: #f2f2f2; */
   margin: 0 15px; 
