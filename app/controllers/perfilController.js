@@ -55,6 +55,8 @@ angular.module('InsuControl')
 			.then(function(response){
 				if(response.data.estado == 1) {
 					var id_usuario = response.config.data.id_usuario;
+                    console.log("edicion");
+                    console.log(id_usuario);
 					$http.post(usuarioL, {'id_usuario': id_usuario})
 						.then(function(response) {
 							if(response.data.estado == 1) {

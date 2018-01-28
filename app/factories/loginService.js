@@ -8,6 +8,8 @@ angular.module('InsuControl')
         var service = {};
 
         service.setCredentials = function(data) {
+            console.log("datos");
+            console.log(data);
             localStorageService.set('usuario', data);   
             $rootScope.usuario = data.nombre;
             $rootScope.id_usuario = data.id_usuario;
@@ -45,6 +47,15 @@ angular.module('InsuControl')
         service.getCredentials = function(usuario, clave) {
             return localStorageService.get('usuario');
         }
+        
+        service.setOpciones = function(opc){
+            localStorageService.set('opcion', opc);
+            $rootScope.opciones = opc;
+        }
+        
+        service.getOpciones = function(opc) {
+			return localStorageService.get('opcion');
+		}
 
         service.isLoggedIn = function() {
             if (localStorageService.length() > 0) {

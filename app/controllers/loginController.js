@@ -7,6 +7,7 @@ angular.module('InsuControl')
         
         var userLogin = "http://localhost/pdo_servicios/Ws_Ic/vista/autenticacion_login.php";
         var obtenerTipoUser = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerTipoUsuario.php";
+        var opcionUser = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerOpciones.php";
 
     /*   var userLogin = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/autenticacion_login.php";
         var obtenerTipoUser = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerTipoUsuario.php";
@@ -18,14 +19,16 @@ angular.module('InsuControl')
             }
         }
 
-        $scope.login = function(){  
+        $scope.login = function(){
+            console.log("correo "+$scope.correo+" clave: "+$scope.clave);
             $http.post(userLogin, 
                 {'correo': $scope.correo, 'clave': $scope.clave})
             .then(function(response) {
                 var data = response.data.login;
                 if(response.data.estado == 1) {
-                    $location.path('/perfil');
+                    $scope.obtenerOpciones(data.id_tipo_usuario);
                     AuthenticationService.setCredentials(data);
+                    $location.path('/perfil');
                 } else {
                     alert(response.mensaje);
                 }
@@ -37,6 +40,19 @@ angular.module('InsuControl')
             .then(function(response) {
                 if (response.data.estado == 1) {
                    $scope.data = response.data.tipo_usuario;
+                }
+          });
+        }
+        
+        $scope.obtenerOpciones = function(tipoUsuario){
+            $http.post(opcionUser, 
+                {'id_tipo_user': tipoUsuario})
+            .then(function(response) {
+                var opc = response.data.opciones;
+                if(response.data.estado == 1) {
+                    AuthenticationService.setOpciones(opc);
+                } else {
+                    alert(response.mensaje);
                 }
           });
         }

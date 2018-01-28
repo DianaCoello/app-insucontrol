@@ -11,6 +11,8 @@ angular.module('InsuControl')
 		    } else {
 		    	var data = AuthenticationService.getCredentials();
 		    	AuthenticationService.setCredentials(data);
+                var opc = AuthenticationService.getOpciones();
+                AuthenticationService.setOpciones(opc);
 		    }
 		}
 

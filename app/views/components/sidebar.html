@@ -5,34 +5,10 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav row">
-            <li id="nav_perfil">
-                <a href="#!/perfil">
-                    <i class="material-icons">person</i>
-                    <p>Perfil</p>
-                </a>
-            </li>
-            <li id="nav_usuario">
-                <a href="#!/usuarios">
-                    <i class="material-icons">content_paste</i>
-                    <p>Usuarios</p>
-                </a>
-            </li>
-            <li id="nav_alimentos">
-                <a href="#!/alimentos">
-                    <i class="material-icons">bubble_chart</i>
-                    <p>Alimentos</p>
-                </a>
-            </li>
-            <li id="nav_historial">
-                <a href="#!/historial">
-                    <i class="material-icons">library_books</i>
-                    <p>Historial</p>
-                </a>
-            </li>
-            <li id="nav_mapa">
-                <a href="#!/mapa">
-                    <i class="material-icons">person_pin_circle</i>
-                    <p>Mapa</p>
+            <li ng-repeat="opc in $parent.opciones" id="{{opc.label_id}}">
+                <a href="{{opc.url}}">
+                    <i class="material-icons">{{opc.icon}}</i>
+                    <p>{{opc.nombre}}</p>
                 </a>
             </li>
             
