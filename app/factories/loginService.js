@@ -2,13 +2,13 @@
  
 angular.module('InsuControl')
 .factory('AuthenticationService', ['$http', '$rootScope', 'localStorageService',
-    '$location',
-    function ($http, $rootScope, localStorageService, $location) {
+    '$location', 'AclService',
+    function ($http, $rootScope, localStorageService, $location, AclService) {
 
         var service = {};
 
         service.setCredentials = function(data) {
-            localStorageService.set('usuario', data);
+            localStorageService.set('usuario', data);   
             $rootScope.usuario = data.nombre;
             $rootScope.id_usuario = data.id_usuario;
             $rootScope.apellido = data.apellido;
@@ -38,6 +38,8 @@ angular.module('InsuControl')
                 id_ciudad: data.id_ciudad,
                 nombre_ciudad: data.nombre_ciudad
             }
+            AclService.roles($rootScope.nombre_usuario);
+
         }
 
         service.getCredentials = function(usuario, clave) {

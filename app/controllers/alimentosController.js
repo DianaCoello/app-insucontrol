@@ -20,12 +20,10 @@ angular.module('InsuControl')
 		var modificarAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/modificarAlimento.php";
 		var eliminarAlimento = "http://localhost/pdo_servicios/Ws_Ic/vista/eliminarAlimento.php";
 
-		
 
 		$scope.mostrarAlimento = function(){
 			$http.post(obtenerAlimento)
 		  	.then(function(response) {
-		  		console.log(response.data.estado);
 				if (response.data.estado == 1) {
 		   		   $scope.data = response.data.alimentos;
 		  		}
@@ -48,10 +46,11 @@ angular.module('InsuControl')
 				'peso_porcion': $scope.peso_porcion, 'gramos_ch': $scope.gramos_ch, 
 				'cant_porcion': $scope.cant_porcion})
 			.then(function(response){
-				console.log(response);
 				if (response.data.estado == 1) {
 		    		$scope.clearForm();
 			      	$scope.mostrarAlimento();
+			      	$location.path('/alimentos');
+			      	alert("Registro exitoso");
 				}
 			});
 		}
@@ -83,6 +82,7 @@ angular.module('InsuControl')
 					$scope.mostrarAlimento();
 			    	$scope.clearForm();
 			    	$location.path('/alimentos');
+			    	alert("Alimento Modificado");
 			    }
 			});
 		}
@@ -93,6 +93,7 @@ angular.module('InsuControl')
 				if (response.data.estado == 1) {
 		  			$scope.mostrarAlimento();
 		  			$location.path('/alimentos');
+		  			alert("Alimento Eliminado");
 		  		}
 		 	});
 		}

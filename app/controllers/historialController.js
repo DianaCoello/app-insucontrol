@@ -37,7 +37,7 @@ angular.module('InsuControl')
             //document.getElementById("nav_historial").className = "active";
 			$http.post(obtenerHistorial, {'id_usuario': $rootScope.paciente_id, 'fecha1': $scope.sfPasado, 'fecha2':$scope.sfHoy})
 		  	.then(function(response) {
-                console.log("estado"+response.data.estado);
+            //    console.log("estado"+response.data.estado);
                 if(response.data.estado == 1){
                     $scope.data = response.data.historial;
                 //console.log(response.data.historial);
@@ -69,7 +69,7 @@ angular.module('InsuControl')
             $scope.dInsulina[0] = aInsulina;
             $scope.labels=aCant;
             
-            console.log($scope.datas);
+       //     console.log($scope.datas);
             //console.log(arreglo);
             
         }

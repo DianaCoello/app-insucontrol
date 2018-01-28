@@ -2,18 +2,15 @@
 
 angular.module('InsuControl')
 .controller('appController', ['$scope', '$location', 'AuthenticationService', 
-	'localStorageService', 'AclService',
-	function($scope, $location, AuthenticationService, localStorageService, AclService) {
+	'localStorageService',
+	function($scope, $location, AuthenticationService, localStorageService) {
 		
 		$scope.init = function() { 
 			if (!AuthenticationService.isLoggedIn()) {
 		    	$location.path('/login');
-		    	
 		    } else {
 		    	var data = AuthenticationService.getCredentials();
 		    	AuthenticationService.setCredentials(data);
-		    	AclService.roles();
-//		    	$location.path('/perfil');
 		    }
 		}
 

@@ -4,17 +4,17 @@
     <h1 class="title"><img src="assets/img/logo.png" alt=""></h1>
     <form id="registro" ng-submit="guardarUsuario()">
       <div class="input-container">
-        <input class="nombre" type="#{type}" ng-model="nombre" required="required"/>
+        <input class="nombre" type="#{type}" ng-model="nombre_user" required="required"/>
         <label for="#{label}">Nombre</label>
         <div class="bar"></div>
       </div>
       <div class="input-container">
-        <input type="apellido" ng-model="apellido" required="required"/>
+        <input type="apellido" ng-model="apellido_usuario" required="required"/>
         <label for="#{label}">Apellido</label>
         <div class="bar"></div>
       </div>
       <div class="input-container">
-        <input type="correo" ng-model="correo" required="required"/>
+        <input type="correo" ng-model="email" required="required"/>
         <label for="#{label}">Correo electrónico</label>
         <div class="bar"></div>
       </div>
@@ -24,7 +24,7 @@
         <div class="bar"></div>
       </div>
       <div class="input-container">
-        <input class="cedula" type="#{type}" ng-model="nic" required="required"/>
+        <input class="cedula" type="#{type}" ng-model="cedula" required="required"/>
         <label for="#{label}">Cédula</label>
         <div class="bar"></div>
       </div>      
@@ -33,7 +33,7 @@
             <div class="form-group">
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios"  ng-change="GeneroChange('masculino')" ng-model="genero" value="masculino">Masculino
+                        <input type="radio" name="optionsRadios"  ng-change="GeneroChange('masculino')" ng-model="sexo" value="masculino">Masculino
                     </label>
                 </div>
             </div>
@@ -42,7 +42,7 @@
             <div class="form-group">
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios"  ng-change="GeneroChange('femenino')" ng-model="genero" value="femenino">Femenino
+                        <input type="radio" name="optionsRadios"  ng-change="GeneroChange('femenino')" ng-model="sexo" value="femenino">Femenino
                     </label>
                 </div>
             </div>
@@ -50,8 +50,8 @@
       </div>
       <br><br><br>
       <div class="input-container">
-        <input class="nacimiento" type="date" value="fecha_nacimiento" name="dateField" 
-          ng-model="fecha_nacimiento"/>
+        <input class="nacimiento" type="date" value="nacimiento" name="dateField" 
+          ng-model="nacimiento"/>
         <label for="#{label}">Fecha Nacimiento</label>
         <div class="bar"></div>
       </div>
@@ -69,6 +69,7 @@
       </select>
       <div class="bar"></div>
       <div class="button-container">
+        <a href="#!/login" class="primary">Volver</a>
         <input class="btn btn-primary" type="submit" href="#!/login" 
         value="Registrarse"></input>
       </div>

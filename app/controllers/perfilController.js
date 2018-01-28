@@ -2,36 +2,23 @@
  
 angular.module('InsuControl')
 .controller('perfilController', ['$scope', '$rootScope', '$location', '$http', 
-	'localStorageService', 'AuthenticationService',  'AclService',
+	'localStorageService', 'AuthenticationService', 'AclService',
 	function($scope, $rootScope, $location, $http, 
 		localStorageService, AuthenticationService, AclService) {
 
-	/* 	var obtenerUsuario = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerUsuario.php";
+	/* 	var usuarioL = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerUsuarioL.php";
 	 	var obtenerCiudad = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerCiudadXProv.php";
 	 	var obtenerProvincias = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerProvincias.php";
 	 	var obtenerCiudades = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerCiudades.php";
 		var modificarUsuario = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/modificarUsuario.php";
 	*/
 
-		var obtenerUsuario = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerUsuario.php";
+		var usuarioL = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerUsuarioL.php";
 	 	var obtenerCiudad = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerCiudadXProv.php";
 	 	var obtenerProvincias = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerProvincias.php";
 	 	var obtenerCiudades = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerCiudades.php";
 		var modificarUsuario = "http://localhost/pdo_servicios/Ws_Ic/vista/modificarUsuario.php";
-
-		//$scope.can = AclService.can;
-		
-		$scope.mostrarUsuario = function(){
-			$http.post(obtenerUsuario)
-			.then(function(response) {
-				if(response.data.estado == 1) {
-			    	$scope.datos = response.data.usuarios;
-			    }
-			});
-		}
-
-
-
+	
 		$scope.obtenerProvincias = function(){
 			$http.post(obtenerProvincias)
 			  .then(function(response) {
@@ -42,7 +29,6 @@ angular.module('InsuControl')
 		}
 
 		$scope.obtenerCiudad = function(){
-			console.log($scope.miProvincia.id_provincia);
 			$http.post(obtenerCiudad, {'id_provincia': $scope.miProvincia.id_provincia})
 			  .then(function(response) {
 			  	if(response.data.estado == 1) {
@@ -51,7 +37,6 @@ angular.module('InsuControl')
 			});
 		}
 		
-
 		$scope.obtenerCiudades = function(){
 			$http.post(obtenerCiudades)
 			  .then(function(response) {
@@ -62,7 +47,6 @@ angular.module('InsuControl')
 		}
 
 		$scope.modificarUsuario = function(){
-			console.log($scope.id_usuario);
 			$http.post(modificarUsuario, {'id_usuario': $scope.id_usuario, 
 				'nombre': $scope.usuario, 'apellido': $scope.apellido,
 				'correo': $scope.correo, 'nic': $scope.nic, 
@@ -70,19 +54,22 @@ angular.module('InsuControl')
 				'clave': $scope.clave, 'id_ciudad': $scope.miCiudad.id_ciudad})
 			.then(function(response){
 				if(response.data.estado == 1) {
-					var data = response.config.data;
-					console.log(data);
-					 AuthenticationService.setCredentials(data);
-					$scope.mostrarUsuario();
+					var id_usuario = response.config.data.id_usuario;
+					$http.post(usuarioL, {'id_usuario': id_usuario})
+						.then(function(response) {
+							if(response.data.estado == 1) {
+						    	$scope.datos = response.data.usuarioL;
+						    	AuthenticationService.setCredentials($scope.datos[0]);
+						    }
+						});
+					alert("Usuario Modificado");
 		    	}
 		    });
 		}
 
-
 		$scope.obtenerProvincias();
 		$scope.obtenerCiudades();
 		$scope.obtenerCiudad();
-		//$scope.modificarUsuario();
 
 
 		$scope.today = function() {
