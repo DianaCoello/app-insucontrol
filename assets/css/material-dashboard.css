@@ -2754,6 +2754,7 @@ output {
 .form-control,
 .form-group .form-control {
     border: 0;
+    color: #000;
     background-image: linear-gradient(#ffc107, #ffc107), linear-gradient(#AAAAAA, #AAAAAA);
     background-size: 0 2px, 100% 1px;
     background-repeat: no-repeat;
@@ -3009,7 +3010,7 @@ label.control-label {
 .form-group label {
     font-size: 14px;
     line-height: 1.42857;
-    color: #AAAAAA;
+    color: #000;
     font-weight: 400;
 }
 
@@ -3031,16 +3032,20 @@ label.control-label {
     top: -7px;
     font-size: 14px;
     line-height: 1.42857;
+    color: #000;
+    
 }
 
 .form-group.label-static label.control-label,
 .form-group.label-floating.is-focused label.control-label,
 .form-group.label-floating:not(.is-empty) label.control-label {
-    top: -28px;
+    top: -38px;
     left: 0;
     font-size: 11px;
     line-height: 1.07143;
+    color: #ffc107;
 }
+
 
 .form-group.label-floating input.form-control:-webkit-autofill~label.control-label label.control-label {
     top: -28px;

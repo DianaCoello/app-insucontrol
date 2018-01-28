@@ -10,19 +10,21 @@ angular.module('InsuControl')
 
         AclService.addResource('perfil');
         AclService.addResource('alimentos');
+        AclService.addResource('alimento');
         AclService.addResource('usuarios');
         AclService.addResource('historial');
         AclService.addResource('mapa');
      
         AclService.allow('admin', 'usuarios');
         AclService.allow('admin', 'alimentos');
+        AclService.allow('admin', 'alimento');
         AclService.allow('admin', 'historial');
         AclService.allow('admin', 'mapa');
 
-        AclService.allow('paciente', 'alimentos');
+        AclService.allow('paciente', 'alimento');
         AclService.allow('paciente', 'historial');
 
-        AclService.allow('medico', 'alimentos');
+        AclService.allow('medico', 'alimento');
         AclService.allow('medico', 'usuarios');
         AclService.allow('medico', 'historial');
 

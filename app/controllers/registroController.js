@@ -15,7 +15,7 @@ angular.module('InsuControl')
 			$http.post(guardarUsuario, {'nombre': $scope.nombre_user, 
 				'apellido': $scope.apellido_usuario, 'correo': $scope.email,
 				'nic': $scope.cedula, 'sexo': $scope.sexo, 
-				'fecha_nacimiento': $scope.nacimiento,
+				'fecha_nacimiento': $scope.dt,
 				'clave': $scope.clave, 'id_ciudad': $scope.id_ciudad})
 			.then(function(response){
 				if (response.data.estado == 1) {
@@ -56,5 +56,49 @@ angular.module('InsuControl')
 		$scope.clearForm =function() {
 			$('#registro input[type="text"]').val("");
 		}
+
+		$scope.today = function() {
+    		$scope.dt = new Date();	
+  		};
+  		$scope.today();
+
+	  	$scope.toDate = function(strDt) {
+	   		return new Date(strDt);
+	  	}
+  
+	  	$scope.clear = function () {
+	    	$scope.dt = null;
+	  	};
+
+	  	// Disable weekend selection
+	  	$scope.disabled = function(date, mode) {
+	    	return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+	  	};
+
+	  	$scope.toggleMin = function() {
+	    	$scope.minDate = $scope.minDate ? null : new Date();
+	  	};
+	  	$scope.toggleMin();
+	  
+	  	// Open pop-up
+	  	$scope.open = function($event) {
+	    	$event.preventDefault();
+	    	$event.stopPropagation();
+	    	$scope.opened = true;
+	  	};
+
+	  	$scope.dateOptions = {
+	    	formatYear: 'yy',
+	    	startingDay: 1
+	  	};
+
+	  	$scope.formats = [
+	    	'dd-MMMM-yyyy',
+	    	'yyyy/MM/dd',
+	    	'dd.MM.yyyy',
+	    	'shortDate'
+	  	];
+	  	$scope.format = $scope.formats[3];
+        
 	}
 ]);

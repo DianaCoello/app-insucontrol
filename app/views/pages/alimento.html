@@ -1,0 +1,58 @@
+<div sidebar></div>
+<div class="main-panel">
+    <div menu></div>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header" data-background-color="purple">
+                            <h4 class="title">Lista de Alimentos con Carbohidratos</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group col-md-6">
+                                <label>Categoria: </label>
+                                <select class="form-control" ng-model="search.categoria_nombre">
+                                    <span class="selected"></span>
+                                    <option value=''>All</option>
+                                    <option ng-repeat="item in categoria" 
+                                    value='{{item.nombre}}'>
+                                        {{item.nombre}}</option>
+                                </select>
+                            </div>
+                        </div>
+                            <div class="card-content table-responsive">
+                                <table class="table">
+                                    <thead class="text-primary">
+                                        <th>Nombre</th>
+                                        <th>Peso de Porción</th>
+                                        <th>Gramos de Ch</th>
+                                        <th>Categoría</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr dir-paginate="item in data | filter:search.categoria_nombre|itemsPerPage:10">
+                                            <td>{{item.nombre}}</td>
+                                       <!--     <td>{{item.porcion}}</td>  -->
+                                            <td>{{item.peso_porcion}}</td>
+                                            <td>{{item.gramos_ch}}</td>
+                                            <td>{{item.nombre_categoria}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>  
+                </div> 
+                
+                <div class="pull-right">
+                  <dir-pagination-controls
+                       max-size="7"
+                       direction-links="true"
+                       boundary-links="true" >
+                  </dir-pagination-controls>
+            </div>    
+            </div>
+        </div>
+    <div footer></div>
+
+</div>

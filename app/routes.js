@@ -48,6 +48,20 @@ angular.module('InsuControl')
 		    }
 		}) 
 
+		.when('/alimento', {
+			templateUrl: 'app/views/pages/alimento.html',
+			controller: 'alimentosController',
+			resolve : {
+		        'acl' : ['$q', 'AclService', function($q, AclService){
+		        	if (AclService.can('alimento')) {
+		            	return true;
+		          	} else {
+		            	return $q.reject('Unauthorized');
+		          	}
+		        }]
+		    }
+		}) 
+
 		.when('/mapa', {
 			templateUrl: 'app/views/pages/mapa.html',
 			controller: 'mapaController',

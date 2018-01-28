@@ -5,17 +5,17 @@
     <form ng-submit="login()">
       <div class="input-container">
         <input class="user" type="#{type}" ng-model="correo" required="required"/>
-        <label for="#{label}">Correo o Cédula</label>
+        <label for="#{label}"><i class="material-icons">&#xE8A6;</i> Correo o Cédula</label>
         <div class="bar"></div>
       </div>
       <div class="input-container">
         <input type="password" ng-model="clave" required="required"/>
-        <label for="#{label}">Contraseña</label>
+        <label for="#{label}"> <i class="material-icons">&#xE88D;</i> Contraseña</label>
         <div class="bar"></div>
       </div>
       <div class="button-container">
         <input class="btn btn-primary" type="submit" value="Iniciar Sesión"></input>
-        <a href="#!/registro" class="primary">Registrarse</a>
+        <h4><a href="#!/registro" class="primary">Registrarse</a></h4>
       </div>
     </form>
   </div>
