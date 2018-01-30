@@ -7,6 +7,17 @@ angular.module('InsuControl')
          Chart.defaults.global.defaultFontColor = '#fff';
          
          
+         var lectura = $rootScope.paciente_id;
+         if (typeof lectura != 'undefined'){
+         }else{
+             $rootScope.paciente_nombre = $rootScope.apellido+" "+$rootScope.usuario;
+             $rootScope.paciente_id = $rootScope.id_usuario;
+         }
+         
+         
+         
+         
+         
         //var obtenerHistorial = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerHistorial.php"; 
 	 	var obtenerHistorial = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerHistorial.php";
 		var aGlucosa = [];
@@ -30,8 +41,6 @@ angular.module('InsuControl')
         $scope.sfHoy = (fHoy.getFullYear() + "-"+(fHoy.getMonth()+1)+"-"+fHoy.getDate()+" 23:59:00");
          $scope.sfPasado = (fSemana.getFullYear() + "-"+(fSemana.getMonth()+1)+"-"+fSemana.getDate()+" 00:00:00");
          
-        console.log ("hoy= " + $scope.sfHoy);
-         console.log ("pasado= "+$scope.sfPasado); 
 
 		$scope.mostrarHistorial = function(){
             //document.getElementById("nav_historial").className = "active";
@@ -44,12 +53,12 @@ angular.module('InsuControl')
                     //console.log("con datos");
                     $scope.llenarDatos($scope.data);
                 } else {
-                    
-                    //console.log("sin datos0");
+                    $scope.dGlucosa[0] = [0];
+                    $scope.dCarbohidratos[0] = [0];
+                    $scope.dInsulina[0] = [0];
+                    alert("Usted no cuenta con historial");     
                 }
-		      
-                
-		  });
+            });
 		}
 		
 		$scope.mostrarHistorial();

@@ -10,7 +10,7 @@
                                 <h4 class="title">Mapa de uso INSUCONTROL-APP</h4>
                             </div>
                             <div class="card-content">
-                                <ng-map center="-2.13, -79.89" zoom="4">
+                                <ng-map class="mapa_display" center="-2.13, -79.89" zoom="6" style="display: block; height: 500px;">
                                     <marker ng-repeat="item in data" position="{{item.latitud}}, {{item.longitud}}"></marker>
                                 </ng-map>
                             </div>

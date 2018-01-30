@@ -41,7 +41,8 @@ angular.module('InsuControl')
 
 		
 		$scope.insertarAlimentos = function(){
-			$http.post(guardarAlimento, {'id_categoria': $scope.id_categoria, 
+            if (typeof $scope.id_categoria != 'undefined'){
+                $http.post(guardarAlimento, {'id_categoria': $scope.id_categoria, 
 				'nombre': $scope.nombre, 'porcion': $scope.porcion,
 				'peso_porcion': $scope.peso_porcion, 'gramos_ch': $scope.gramos_ch, 
 				'cant_porcion': $scope.cant_porcion})
@@ -50,9 +51,13 @@ angular.module('InsuControl')
 		    		$scope.clearForm();
 			      	$scope.mostrarAlimento();
 			      	$location.path('/alimentos');
-			      	alert("Registro exitoso");
+			      	alert("Registro exitoso!\nNuevo alimento: "+$scope.nombre);
 				}
 			});
+            } else {
+                alert("Seleccione una categoria.");
+            }
+			
 		}
 
 
@@ -68,6 +73,12 @@ angular.module('InsuControl')
 	                $scope.peso_porcion = dataAlimento[0].peso_porcion;
 	                $scope.gramos_ch = dataAlimento[0].gramos_ch;
 	                $scope.cant_porcion = dataAlimento[0].cant_porcion;
+                    
+                    document.getElementById("mdlNombre").classList.remove("is-empty");
+                    document.getElementById("mdlPorcion").classList.remove("is-empty");
+                    document.getElementById("mdlPesoPorcion").classList.remove("is-empty");
+                    document.getElementById("mdlGramos").classList.remove("is-empty");
+                    document.getElementById("mdlCantidad").classList.remove("is-empty");
                	}
 			});
 		}

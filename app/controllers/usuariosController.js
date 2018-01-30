@@ -26,15 +26,14 @@ angular.module('InsuControl')
          /*------*/
 
          /*---Preguntar por historial---*/
-         $scope.buscarHistorial = function(id_usuario, nombre){
-			 $rootScope.paciente_id = id_usuario;
-             $rootScope.paciente_nombre = nombre;
-             $http.post(obtenerHistorial, {'id_usuario': $rootScope.paciente_id, 'fecha1': $scope.sfPasado, 'fecha2':$scope.sfHoy})
+         $scope.buscarHistorial = function(id_usuario, nombre){	 
+             $http.post(obtenerHistorial, {'id_usuario': id_usuario, 'fecha1': $scope.sfPasado, 'fecha2':$scope.sfHoy})
 		  	.then(function(response) {
                 if(response.data.estado == 1){
                     $scope.data = response.data.historial;
-                        $location.path('/historial');
-                    $scope.llenarDatos($scope.data);
+                    $rootScope.paciente_id = id_usuario;
+                    $rootScope.paciente_nombre = nombre;
+                    $location.path('/historial');
                 } else {
                     alert("El usuario no cuenta con historial");
                 }

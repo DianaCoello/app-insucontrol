@@ -12,7 +12,7 @@
                         <div class="card-content">
                             <div class="form-group col-md-6">
                                 <label>Categoria: </label>
-                                <select class="form-control" ng-model="search.categoria_nombre">
+                                <select class="form-control" ng-model="sort.categoria_nombre">
                                     <span class="selected"></span>
                                     <option value=''>All</option>
                                     <option ng-repeat="item in categoria" 
@@ -25,6 +25,15 @@
                                 <div class="toggle"></div>
                             </div>
                             </div>
+                        
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group  is-empty">
+                                <input type="text" ng-model="search" class="form-control" placeholder=" ">
+                                <i class="material-icons">search</i>    
+                            </div>
+                            
+                        </form>    
+                        
                             <div class="card-content table-responsive">
                                 <table class="table">
                                     <thead class="text-primary">
@@ -36,7 +45,7 @@
                                         <th>Acciones</th>
                                     </thead>
                                     <tbody>
-                                        <tr dir-paginate="item in data | filter:search.categoria_nombre|itemsPerPage:10">
+                                        <tr dir-paginate="item in data | filter:sort.categoria_nombre|filter:search|itemsPerPage:10">
                                             <td>{{item.nombre}}</td>
                                        <!--     <td>{{item.porcion}}</td>  -->
                                             <td>{{item.peso_porcion}}</td>
@@ -166,35 +175,35 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group label-floating">
-                                <label class="active control-label">Nombre</label>
+                            <div id="mdlNombre" class="form-group label-floating">
+                                <label class="control-label">Nombre</label>
                                 <input type="text" class="form-control" 
                                 value="{{nombre}}" ng-model="nombre" required="">
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group label-floating">
+                            <div id="mdlPorcion" class="form-group label-floating">
                                 <label class="control-label">Porción</label>
                                 <input id="porcion" type="text" class="form-control" 
                                 value="{{porcion}}" ng-model="porcion" required=""> 
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group label-floating">
+                            <div id="mdlPesoPorcion" class="form-group label-floating">
                                 <label class="control-label">Peso Porción</label>
                                 <input id="peso_porcion" type="text" 
                                 class="form-control" value="{{$parent.peso_porcion}}" ng-model="peso_porcion" required=""> 
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group label-floating">
+                            <div id="mdlGramos" class="form-group label-floating">
                                 <label class="control-label">Gramos Ch</label>
                                 <input id="gramos_ch" type="text" class="form-control" 
                                 value="{{$parent.gramos_ch}}" ng-model="gramos_ch" required=""> 
                             </div> 
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group label-floating">
+                            <div id="mdlCantidad" class="form-group label-floating">
                                 <label class="control-label">Cant. Porción</label>
                                 <input id="cant_porcion" type="text" 
                                 class="form-control" value="{{$parent.cant_porcion}}" ng-model="cant_porcion" required=""> 

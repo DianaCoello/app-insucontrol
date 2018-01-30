@@ -6,13 +6,17 @@ angular.module('InsuControl')
 		var obtenerProvincia = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerProvincias.php";
 	 	var obtenerCiudad = "http://insucontrol.life/pdo_servicios/Ws_Ic/vista/obtenerCiudadXProv.php";
 	*/
-
+         var vacios = false;
+         var mVacio = "Debe llenar los siguientes campos\n"
 	 	var guardarUsuario = "http://localhost/pdo_servicios/Ws_Ic/vista/guardarUsuario.php";
 		var obtenerProvincia = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerProvincias.php";
 	 	var obtenerCiudad = "http://localhost/pdo_servicios/Ws_Ic/vista/obtenerCiudadXProv.php";
 
 		$scope.guardarUsuario = function(){
-			$http.post(guardarUsuario, {'nombre': $scope.nombre_user, 
+            console.log("Fecha: "+$scope.dt+" Sexo: "+$scope.sexo+" Ciudad: "+$scope.ciudad);
+            $scope.verificarVacio();
+            if (!vacios){
+                $http.post(guardarUsuario, {'nombre': $scope.nombre_user, 
 				'apellido': $scope.apellido_usuario, 'correo': $scope.email,
 				'nic': $scope.cedula, 'sexo': $scope.sexo, 
 				'fecha_nacimiento': $scope.dt,
@@ -25,8 +29,28 @@ angular.module('InsuControl')
 				}else{
 					alert("El usuario ya existe");
 				}
-			});
+			 });
+            }else{
+                alert(mVacio);
+                mVacio = "Debe llenar los siguientes campos\n";
+                vacios = false;
+            }
 		} 
+        
+        $scope.verificarVacio = function(){
+            if(typeof $scope.sexo == 'undefined'){
+                vacios = true;
+                mVacio += "Sexo\n";
+            }
+            if(typeof $scope.id_provincia == 'undefined'){
+                vacios = true;
+                mVacio += "Provincia\n";
+            }
+            if(typeof $scope.id_ciudad == 'undefined'){
+                vacios = true;
+                mVacio += "Ciudad\n";
+            }
+        }
 
 		$scope.obtenerProvincia = function(){
 			$http.post(obtenerProvincia)

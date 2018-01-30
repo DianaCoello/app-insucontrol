@@ -9,10 +9,15 @@ angular.module('InsuControl')
 			if (!AuthenticationService.isLoggedIn()) {
 		    	$location.path('/login');
 		    } else {
-		    	var data = AuthenticationService.getCredentials();
+                try{
+                    var data = AuthenticationService.getCredentials();
 		    	AuthenticationService.setCredentials(data);
                 var opc = AuthenticationService.getOpciones();
                 AuthenticationService.setOpciones(opc);
+                } catch(err){
+                    $scope.logout();
+                }
+		    	
 		    }
 		}
 
